@@ -6,7 +6,7 @@ Proof of concept, infrastructure as code, load balanced azure front-end web serv
 Open Azure CLI command window, then login by typing `az login`. After successul login, execute the following command to create a resource group:
 
 ```
-az group create --name poc-iac-azure-linux-script
+az group create --name poc-iac-azure-linux-script --location southeastasia
 ```
 
 After resource group is created successfully, execute the following command to start the deployment process:
