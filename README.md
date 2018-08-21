@@ -1,7 +1,7 @@
 # poc-iac-azure-linux-script
 Proof of concept, infrastructure as code, load balanced azure front-end web servers with a single database server. Also demonstrate how to execute custom scripts upon provisioning virtual machines.
 ### Diagram
-![Diagram vnet dan vm](https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/diagrams/poc-iac-linux-script.png)
+![Diagram vnet dan vm](https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/diagrams/poc-iac-azure-linux-script.png)
 ### How to Deploy Using Azure CLI
 Open Azure CLI command window, then login by typing `az login`. After successul login, execute the following command to create a resource group:
 
