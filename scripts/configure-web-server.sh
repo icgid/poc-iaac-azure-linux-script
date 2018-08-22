@@ -13,6 +13,7 @@ sudo service nginx start
 sudo touch /etc/nginx/sites-available/default
 sudo wget https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/configs/nginx/default
 sudo cp default /etc/nginx/sites-available/
+sudo nginx -s reload
 
 # Install dotnet core
 wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
