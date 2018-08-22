@@ -12,7 +12,7 @@
     "numberOfInstances": {
       "type": "int",
       "minValue": 1,
-      "defaultValue": 2,
+      "defaultValue": 1,
       "metadata": {
         "description": "Number of VM instances to be created behind load balancer."
       }
@@ -403,7 +403,7 @@
           "name": "config-app",
           "location": "[resourceGroup().location]",
           "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', concat(variables('frontendVmName'),copyindex(1)))]"
+            "[concat('Microsoft.Compute/virtualMachines/', concat(variables('frontendVmName'), copyindex(1)))]"
           ],
           "tags": {
             "displayName": "config-app"
@@ -415,11 +415,11 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
+                "https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/scripts/configure-web-server.sh"
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
+              "commandToExecute": "sudo sh configure-web-server.sh"
             }
           }
         }
