@@ -1,5 +1,7 @@
 # poc-iac-azure-linux-script
 Proof of concept, infrastructure as code, load balanced azure front-end web servers with a single database server. Also demonstrate how to execute custom scripts upon provisioning virtual machines.
+
+This project is adapted from Microsoft MusicStore template.
 ### Diagram
 ![Diagram vnet dan vm](https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/diagrams/poc-iac-azure-linux-script.png)
 ### How to Deploy Using Azure CLI
