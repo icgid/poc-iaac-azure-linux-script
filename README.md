@@ -12,5 +12,5 @@ az group create --name poc-iac-azure-linux-script --location southeastasia
 After resource group is created successfully, execute the following command to start the deployment process:
 
 ```
-az group deployment create --name LinuxScriptDeployment --resource-group poc-iac-azure-linux-script --template-file .\azuredeploy.json --parameters .\azuredeploy.parameters.json
+az group deployment create --name LinuxScriptDeployment --resource-group poc-iac-azure-linux-script --template-file azuredeploy.json --parameters azuredeploy.parameters.json
 ```
