@@ -2,8 +2,8 @@
 
 # Configure mysql-server
 export DEBIAN_FRONTEND="noninteractive"
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $1"
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $1"
+sudo debconf-set-selections <<< "mysql-server-5.7 mysql-server/root_password password $1"
+sudo debconf-set-selections <<< "mysql-server-5.7 mysql-server/root_password_again password $1"
 sudo apt-get install -y mysql-server
 
 # Create wordpress database
