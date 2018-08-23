@@ -27,7 +27,13 @@
     "adminPassword": {
       "type": "securestring",
       "metadata": {
-        "description": "Admin password for VM."
+        "description": "Admin password for database VM and mysql root user."
+      }
+    },
+    "dbUserPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Database user password for application connection."
       }
     },
     "sshKeyData": {
@@ -531,7 +537,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "[concat('sudo sh configure-web-server.sh', parameters('adminPassword'))]"
+              "commandToExecute": "[concat('sudo sh configure-web-server.sh ', parameters('adminPassword'), ' ', parameters('dbUserPassword'))]"
             }
           }
         }
