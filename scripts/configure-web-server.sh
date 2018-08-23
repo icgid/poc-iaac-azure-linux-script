@@ -7,6 +7,7 @@ sudo wget https://wordpress.org/latest.tar.gz
 sudo tar -xvzf latest.tar.gz
 sudo mkdir /opt/www
 sudo cp -R wordpress/* /opt/www/
+sudo chown -R www-data:www-data /opt/www/
 
 # Install nginx
 sudo apt-get install -y nginx
