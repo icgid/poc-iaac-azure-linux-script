@@ -406,7 +406,7 @@
             "[concat('Microsoft.Compute/virtualMachines/', concat(variables('frontendVmName'), copyindex(1)))]"
           ],
           "tags": {
-            "displayName": "config-app"
+            "displayName": "frontend-config-app"
           },
           "properties": {
             "publisher": "Microsoft.Azure.Extensions",
@@ -507,7 +507,35 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-03-30",
+          "type": "extensions",
+          "name": "config-app",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', concat(variables('backendVmName')))]"
+          ],
+          "tags": {
+            "displayName": "backend-config-app"
+          },
+          "properties": {
+            "publisher": "Microsoft.Azure.Extensions",
+            "type": "CustomScript",
+            "typeHandlerVersion": "2.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/scripts/configure-db-server.sh"
+              ]
+            },
+            "protectedSettings": {
+              "commandToExecute": "[concat('sudo sh configure-web-server.sh', parameters('adminPassword'))]"
+            }
+          }
+        }
+      ]
     }
   ],
   "outputs": {}
