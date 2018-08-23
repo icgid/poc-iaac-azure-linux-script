@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt-get update
+
 # Configure mysql-server
 export DEBIAN_FRONTEND="noninteractive"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $1"
