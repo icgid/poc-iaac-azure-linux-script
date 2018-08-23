@@ -425,7 +425,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "sudo sh configure-web-server.sh"
+              "commandToExecute": "sudo bash configure-web-server.sh"
             }
           }
         }
@@ -537,7 +537,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "[concat('sudo sh configure-db-server.sh ', parameters('adminPassword'), ' ', parameters('dbUserPassword'))]"
+              "commandToExecute": "[concat('sudo bash configure-db-server.sh ', parameters('adminPassword'), ' ', parameters('dbUserPassword'))]"
             }
           }
         }
