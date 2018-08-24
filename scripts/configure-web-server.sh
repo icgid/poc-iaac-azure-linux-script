@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-# Donwload wordpress from wordpress.org, and copy it to /opt/wordpress
+# Donwload wordpress from wordpress.org, and copy it to /var/www/wordpress
 sudo wget https://wordpress.org/wordpress-4.9.8.tar.gz
 sudo tar -xvzf wordpress-4.9.8.tar.gz
 sudo mkdir -p /var/www/wordpress
@@ -20,6 +20,7 @@ sudo sed -i "s/<wordpressDomainName>/$1/g" /etc/nginx/sites-available/wordpress
 sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 
+# Upload existing wordpress configuration file
 sudo wget https://raw.githubusercontent.com/icgid/poc-iaac-azure-linux-script/master/configs/wordpress/wp-config.php -O /var/www/wordpress/wp-config.php
 sudo sed -i "s/<dbUserPassword>/$2/g" /var/www/wordpress/wp-config.php
 sudo sed -i "s/<backendIPAddress>/$3/g" /var/www/wordpress/wp-config.php
