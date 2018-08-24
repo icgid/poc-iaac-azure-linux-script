@@ -5,9 +5,9 @@ sudo apt-get update
 # Donwload wordpress from wordpress.org, and copy it to /opt/wordpress
 sudo wget https://wordpress.org/latest.tar.gz
 sudo tar -xvzf latest.tar.gz
-sudo mkdir /opt/www
-sudo cp -R wordpress/* /opt/www/
-sudo chown -R www-data:www-data /opt/www/
+sudo mkdir -p /var/wordpress/html
+sudo cp -R wordpress/* /var/wordpress/html/
+sudo chown -R www-data:www-data /var/wordpress/html/
 
 # Install nginx
 sudo apt-get install -y nginx
@@ -15,9 +15,9 @@ sudo apt-get install -y php-fpm php-mysql
 sudo sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini
 sudo service nginx start
 sudo systemctl restart php7.0-fpm
-sudo touch /etc/nginx/sites-available/default
-sudo wget https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/configs/nginx/default
-sudo cp default /etc/nginx/sites-available/
+sudo wget https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/configs/nginx/wordpress
+sudo cp wordpress /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 
 # Install dotnet core
