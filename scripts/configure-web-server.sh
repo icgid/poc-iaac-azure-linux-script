@@ -15,8 +15,7 @@ sudo apt-get install -y php-fpm php-mysql
 sudo sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.ini
 sudo service nginx start
 sudo systemctl restart php7.0-fpm
-sudo wget https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/configs/nginx/wordpress
-sudo cp wordpress /etc/nginx/sites-available/
+sudo wget https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/configs/nginx/wordpress -O /etc/nginx/sites-available/wordpress
 sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 
