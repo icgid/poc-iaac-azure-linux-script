@@ -456,7 +456,7 @@
           {
             "name": "backendIPConfig",
             "properties": {
-              "privateIPAddress": ["variables('backendIPAddress')"],
+              "privateIPAddress": "[variables('backendIPAddress')]",
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {
                 "id": "[variables('backendSubnetRef')]"
