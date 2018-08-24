@@ -4,7 +4,7 @@ server {
 
     server_name <wordpressDomainName>;
 
-    root /var/wordpress/html;
+    root /var/www/wordpress;
     index index.html index.php;
 
     location / {

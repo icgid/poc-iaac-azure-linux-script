@@ -17,4 +17,4 @@ sudo mysql -u"root" -p"$1" < create-db.sql
 
 # Restore wordpress database
 sudo wget https://raw.githubusercontent.com/icgid/poc-iaac-azure-linux-script/master/scripts/wordpress.demo.sql
-sudo mysqldump -u"root" -p"$1" wordpress < wordpress.demo.sql
+sudo mysql -u"root" -p"$1" wordpress < wordpress.demo.sql
