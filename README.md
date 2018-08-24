@@ -11,11 +11,15 @@ Adaptation efforts:
 ### Diagram
 ![Diagram vnet dan vm](https://raw.githubusercontent.com/icgid/poc-iac-azure-linux-script/master/diagrams/poc-iac-azure-linux-script.png)
 ### How to Deploy Using Azure CLI
-Open Azure CLI command window, then login by typing `az login`. After successul login, execute the following command to create a resource group:
+You can deploy this solution with Azure PowerShell or Azure CLI tool. Either way, you have to install the tool before you can proceed with the deployment.
+
+If your chosen tool is Azure CLI, you can continue to follow this guide to deploy the solution. Open Azure CLI command window, then login by typing `az login`. After successul login, execute the following command to create a resource group:
 
 ```
 az group create --name poc-iac-azure-linux-script --location southeastasia
 ```
+
+Note that you can name the resource group differently, also note that the location we choose is southeastasia. It is recommended that you change the location to the nearest Azure data center from your location.
 
 After resource group is created successfully, execute the following command to start the deployment process:
 
