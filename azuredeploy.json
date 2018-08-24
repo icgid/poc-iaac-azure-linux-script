@@ -41,7 +41,14 @@
       "metadata": {
         "description": "SSH String."
       }
-    }    
+    },
+    "wordpressDomainName": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "Domain name for wordpress site."
+      }
+    }
   },
   "variables": {
     "frontendNsgName": "FrontEndNsg",
@@ -70,7 +77,8 @@
     "frontendVmName": "ubuntu-web",
     "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
     "backendNetworkInterfaceName": "BackendNetworkInterface",
-    "backendVmName": "ubuntu-db"
+    "backendVmName": "ubuntu-db",
+    "backendIPAddress": "192.168.102.4"
   },
   "resources": [
     {
@@ -425,7 +433,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "sudo bash configure-web-server.sh"
+              "commandToExecute": "[concat('sudo bash configure-web-server.sh ', parameters('wordpressDomainName'), ' ', parameters('dbUserPassword'), ' ', variables('backendIPAddress'))]"
             }
           }
         }
@@ -448,7 +456,7 @@
           {
             "name": "backendIPConfig",
             "properties": {
-              "privateIPAddress": "192.168.102.4",
+              "privateIPAddress": ["variables('backendIPAddress')"],
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {
                 "id": "[variables('backendSubnetRef')]"
